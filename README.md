@@ -3831,3 +3831,4 @@ Para os resultados da Clusterização Hierárquica, apresente o dendograma e int
 Compare os dois resultados, aponte as semelhanças e diferenças e interprete.
 
 
+"# clustering" 
