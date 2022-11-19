@@ -1,19 +1,103 @@
 #  <span style="color:purple">Algoritmos Não-Supervisionados para clusterização [22E4_2]</span>
 
 **Erik Tavares dos Anjos** </br>
-Atualizado: 07/11/2022 </br>
+Atualizado: 19/11/2022 </br>
 Git: https://github.com/eriktavares/clustering </br>
 
 
 ##  <span style="color:purple">Infraestrutura</span>
 Para as questões a seguir, você deverá executar códigos em um notebook Jupyter, rodando em ambiente local, certifique-se que:
 
-Você está rodando em Python 3.9+
-Você está usando um ambiente virtual: Virtualenv ou Anaconda
-Todas as bibliotecas usadas nesse exercícios estão instaladas em um ambiente virtual específico
-Gere um arquivo de requerimentos (requirements.txt) com os pacotes necessários. É necessário se certificar que a versão do pacote está disponibilizada.
-Tire um printscreen do ambiente que será usado rodando em sua máquina.
-Disponibilize os códigos gerados, assim como os artefatos acessórios (requirements.txt) e instruções em um repositório GIT público. (se isso não for feito, o diretório com esses arquivos deverá ser enviado compactado no moodle).
+
+
+
+
+
+Disponibilize os códigos gerados, assim como os artefatos acessórios (requirements.txt) e instruções em um repositório GIT público. (se isso não for feito, o diretório com esses</br>
+arquivos deverá ser enviado compactado no moodle).
+
+**Você está rodando em Python 3.9+** </br>
+
+
+```python
+from platform import python_version
+print("Current Python Version-", python_version())
+```
+
+    Current Python Version- 3.9.15
+    
+
+**Você está usando um ambiente virtual: Virtualenv ou Anaconda </br>**
+
+Ambiente Anaconda
+
+
+```python
+!conda --version
+```
+
+    conda 4.13.0
+    
+
+**Todas as bibliotecas usadas nesse exercícios estão instaladas em um ambiente virtual específico </br>**
+
+Um ambiente  environment do Anaconda chamado "Cluster" foi criado para rodar o exercício
+
+
+```python
+!conda info
+```
+
+    
+         active environment : Cluster
+        active env location : C:\Users\Erik\.conda\envs\Cluster
+                shell level : 2
+           user config file : C:\Users\Erik\.condarc
+     populated config files : C:\Users\Erik\.condarc
+              conda version : 4.13.0
+        conda-build version : 3.22.0
+             python version : 3.9.7.final.0
+           virtual packages : __win=0=0
+                              __archspec=1=x86_64
+           base environment : C:\ProgramData\Anaconda3  (read only)
+          conda av data dir : C:\ProgramData\Anaconda3\etc\conda
+      conda av metadata url : None
+               channel URLs : https://repo.anaconda.com/pkgs/main/win-64
+                              https://repo.anaconda.com/pkgs/main/noarch
+                              https://repo.anaconda.com/pkgs/r/win-64
+                              https://repo.anaconda.com/pkgs/r/noarch
+                              https://repo.anaconda.com/pkgs/msys2/win-64
+                              https://repo.anaconda.com/pkgs/msys2/noarch
+              package cache : C:\ProgramData\Anaconda3\pkgs
+                              C:\Users\Erik\.conda\pkgs
+                              C:\Users\Erik\AppData\Local\conda\conda\pkgs
+           envs directories : C:\Users\Erik\.conda\envs
+                              C:\ProgramData\Anaconda3\envs
+                              C:\Users\Erik\AppData\Local\conda\conda\envs
+                   platform : win-64
+                 user-agent : conda/4.13.0 requests/2.28.1 CPython/3.9.7 Windows/10 Windows/10.0.19044
+              administrator : False
+                 netrc file : None
+               offline mode : False
+    
+    
+
+**Gere um arquivo de requerimentos (requirements.txt) com os pacotes necessários. É necessário se certificar que a versão do pacote está disponibilizada.** </br>
+
+
+```python
+!conda env export > environment.txt --no-builds
+```
+
+**Tire um printscreen do ambiente que será usado rodando em sua máquina**. </br>
+
+![ambiente.PNG](attachment:ambiente.PNG)
+
+**Disponibilize os códigos gerados, assim como os artefatos acessórios (requirements.txt) e instruções em um repositório GIT público. (se isso não for feito, o diretório com esses arquivos deverá ser enviado compactado no moodle).**
+
+**Git: https://github.com/eriktavares/clustering** </br>
+
+##  <span style="color:purple">Escolha de base de dados</span>
 
 **1. Baixe os dados disponibilizados na plataforma Kaggle sobre dados sócio-econômicos e de saúde que determinam o índice de desenvolvimento de um país. Esses dados estão disponibilizados através do link: https://www.kaggle.com/datasets/rohan0301/unsupervised-learning-on-country-data**
 
@@ -389,7 +473,7 @@ sns.heatmap(corr, square=True, linewidths=.5, annot=True);
 
 
     
-![png](output_13_0.png)
+![png](output_28_0.png)
     
 
 
@@ -442,7 +526,7 @@ plt.show()
 
 
     
-![png](output_20_0.png)
+![png](output_35_0.png)
     
 
 
@@ -1022,10 +1106,6 @@ df_cl.index.names = [None]
 df_cl
 ```
 
-    C:\Users\Erik\AppData\Roaming\Python\Python39\site-packages\sklearn\cluster\_kmeans.py:1334: UserWarning: KMeans is known to have a memory leak on Windows with MKL, when there are less chunks than available threads. You can avoid it by setting the environment variable OMP_NUM_THREADS=1.
-      warnings.warn(
-    
-
 
 
 
@@ -1254,7 +1334,7 @@ plt.show()
 
 
     
-![png](output_29_0.png)
+![png](output_44_0.png)
     
 
 
@@ -1532,7 +1612,7 @@ plot_cluster_points(df_t1, kmeans)
 
 
     
-![png](output_33_0.png)
+![png](output_48_0.png)
     
 
 
@@ -1553,12 +1633,12 @@ plt.show()
 ```
 
 
-    <Figure size 2160x1440 with 0 Axes>
+    <Figure size 3000x2000 with 0 Axes>
 
 
 
     
-![png](output_34_1.png)
+![png](output_49_1.png)
     
 
 
@@ -2179,15 +2259,9 @@ plt.ylabel('Euclidean Distance')
 
 
     
-![png](output_46_1.png)
+![png](output_61_1.png)
     
 
-
-
-```python
-hc_pred = hc.fit_predict(df_t1)
-
-```
 
 
 ```python
@@ -2220,7 +2294,7 @@ df_results2['Clusters_hc'].value_counts(normalize=True)
 
 
     
-![png](output_48_1.png)
+![png](output_62_1.png)
     
 
 
@@ -2241,7 +2315,7 @@ plt.show()
 
 
     
-![png](output_49_0.png)
+![png](output_63_0.png)
     
 
 
@@ -2351,16 +2425,16 @@ fig, (ax0, ax1) = plt.subplots(nrows=1, ncols=2, sharex=True,
                                     figsize=(12, 6))
 
 
-
 # Pie chart, where the slices will be ordered and plotted counter-clockwise:
 labels = 'Cluster 01', 'Cluster 02', 'Cluster 03'
 sizes0 = df_results['Clusters'].value_counts(normalize=True)
-sizes1 = df_results['Clusters_hc'].value_counts(normalize=True)
+sizes1 = df_results2['Clusters_hc'].value_counts(normalize=True)
 #fig1, ax1 = plt.subplots()
 ax0.set_title('KMeans')
 ax0.pie(sizes0, labels=labels, autopct='%1.1f%%',
         shadow=True, startangle=90)
 ax0.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+
 ax1.set_title('Hierarchy')
 ax1.pie(sizes1, labels=labels, autopct='%1.1f%%',
         shadow=True, startangle=90)
@@ -2371,7 +2445,7 @@ plt.show()
 
 
     
-![png](output_54_0.png)
+![png](output_68_0.png)
     
 
 
@@ -2385,7 +2459,7 @@ No Hierarchy o Cluster 1 - Piores indicadores, o 2 Indicadores Médios, 0 - Melh
 
 ```python
 dict= {1: 0, 2: 1, 0: 2}
-df_results['Clusters_hc']=df_results['Clusters_hc'].replace(dict)
+df_results['Clusters_hc']=df_results2.reset_index(drop=True)['Clusters_hc'].replace(dict)
 ```
 
 As semelhanças foram em 149 dos 167 paises, o que representa 89% dos paises.
@@ -2678,9 +2752,17 @@ df_results.groupby('Clusters').mean()
       <th>life_expec</th>
       <th>total_fer</th>
       <th>gdpp</th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>Clusters_hc</th>
     </tr>
     <tr>
       <th>Clusters</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
       <th></th>
       <th></th>
       <th></th>
@@ -2704,6 +2786,10 @@ df_results.groupby('Clusters').mean()
       <td>59.393478</td>
       <td>5.090217</td>
       <td>1695.913043</td>
+      <td>0.328353</td>
+      <td>0.699293</td>
+      <td>1.032569</td>
+      <td>0.152174</td>
     </tr>
     <tr>
       <th>1</th>
@@ -2716,6 +2802,10 @@ df_results.groupby('Clusters').mean()
       <td>72.582558</td>
       <td>2.293256</td>
       <td>6719.790698</td>
+      <td>0.674544</td>
+      <td>0.258311</td>
+      <td>0.574564</td>
+      <td>1.023256</td>
     </tr>
     <tr>
       <th>2</th>
@@ -2728,6 +2818,10 @@ df_results.groupby('Clusters').mean()
       <td>80.245714</td>
       <td>1.741143</td>
       <td>43117.142857</td>
+      <td>1.055641</td>
+      <td>0.626668</td>
+      <td>0.369437</td>
+      <td>1.857143</td>
     </tr>
   </tbody>
 </table>
@@ -3289,7 +3383,7 @@ plt.show()
 
 
     
-![png](output_69_0.png)
+![png](output_83_0.png)
     
 
 
@@ -3626,208 +3720,5 @@ O ponto N não é acessível e nem possui pontos dentro do raio epsilon. N não 
 de A seria definido da mesmo forma.
 
 ![1280px-DBSCAN-Illustration.svg.png](attachment:1280px-DBSCAN-Illustration.svg.png)
-
-
-```python
-from sklearn.cluster import DBSCAN
-from sklearn.datasets import make_blobs
-from sklearn.preprocessing import StandardScaler
-```
-
-
-```python
-from unicodedata import normalize
-import pycaret.clustering as pc
-
-pc.setup(df, normalize=True, remove_outliers = True)
-kmeanspc = pc.create_model('kmeans', n_clusters=3)
-```
-
-    C:\Users\Erik\AppData\Roaming\Python\Python39\site-packages\sklearn\base.py:450: UserWarning: X does not have valid feature names, but IsolationForest was fitted with feature names
-      warnings.warn(
-    C:\Users\Erik\AppData\Roaming\Python\Python39\site-packages\sklearn\base.py:450: UserWarning: X does not have valid feature names, but IsolationForest was fitted with feature names
-      warnings.warn(
-    
-
-
-<style type="text/css">
-#T_a569c_row4_col1, #T_a569c_row9_col1, #T_a569c_row11_col1 {
-  background-color: lightgreen;
-}
-</style>
-<table id="T_a569c">
-  <thead>
-    <tr>
-      <th class="blank level0" >&nbsp;</th>
-      <th id="T_a569c_level0_col0" class="col_heading level0 col0" >Description</th>
-      <th id="T_a569c_level0_col1" class="col_heading level0 col1" >Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th id="T_a569c_level0_row0" class="row_heading level0 row0" >0</th>
-      <td id="T_a569c_row0_col0" class="data row0 col0" >Session id</td>
-      <td id="T_a569c_row0_col1" class="data row0 col1" >4245</td>
-    </tr>
-    <tr>
-      <th id="T_a569c_level0_row1" class="row_heading level0 row1" >1</th>
-      <td id="T_a569c_row1_col0" class="data row1 col0" >Original data shape</td>
-      <td id="T_a569c_row1_col1" class="data row1 col1" >(167, 9)</td>
-    </tr>
-    <tr>
-      <th id="T_a569c_level0_row2" class="row_heading level0 row2" >2</th>
-      <td id="T_a569c_row2_col0" class="data row2 col0" >Transformed data shape</td>
-      <td id="T_a569c_row2_col1" class="data row2 col1" >(158, 9)</td>
-    </tr>
-    <tr>
-      <th id="T_a569c_level0_row3" class="row_heading level0 row3" >3</th>
-      <td id="T_a569c_row3_col0" class="data row3 col0" >Numeric features</td>
-      <td id="T_a569c_row3_col1" class="data row3 col1" >9</td>
-    </tr>
-    <tr>
-      <th id="T_a569c_level0_row4" class="row_heading level0 row4" >4</th>
-      <td id="T_a569c_row4_col0" class="data row4 col0" >Preprocess</td>
-      <td id="T_a569c_row4_col1" class="data row4 col1" >True</td>
-    </tr>
-    <tr>
-      <th id="T_a569c_level0_row5" class="row_heading level0 row5" >5</th>
-      <td id="T_a569c_row5_col0" class="data row5 col0" >Imputation type</td>
-      <td id="T_a569c_row5_col1" class="data row5 col1" >simple</td>
-    </tr>
-    <tr>
-      <th id="T_a569c_level0_row6" class="row_heading level0 row6" >6</th>
-      <td id="T_a569c_row6_col0" class="data row6 col0" >Numeric imputation</td>
-      <td id="T_a569c_row6_col1" class="data row6 col1" >mean</td>
-    </tr>
-    <tr>
-      <th id="T_a569c_level0_row7" class="row_heading level0 row7" >7</th>
-      <td id="T_a569c_row7_col0" class="data row7 col0" >Categorical imputation</td>
-      <td id="T_a569c_row7_col1" class="data row7 col1" >constant</td>
-    </tr>
-    <tr>
-      <th id="T_a569c_level0_row8" class="row_heading level0 row8" >8</th>
-      <td id="T_a569c_row8_col0" class="data row8 col0" >Low variance threshold</td>
-      <td id="T_a569c_row8_col1" class="data row8 col1" >0</td>
-    </tr>
-    <tr>
-      <th id="T_a569c_level0_row9" class="row_heading level0 row9" >9</th>
-      <td id="T_a569c_row9_col0" class="data row9 col0" >Remove outliers</td>
-      <td id="T_a569c_row9_col1" class="data row9 col1" >True</td>
-    </tr>
-    <tr>
-      <th id="T_a569c_level0_row10" class="row_heading level0 row10" >10</th>
-      <td id="T_a569c_row10_col0" class="data row10 col0" >Outliers threshold</td>
-      <td id="T_a569c_row10_col1" class="data row10 col1" >0.050000</td>
-    </tr>
-    <tr>
-      <th id="T_a569c_level0_row11" class="row_heading level0 row11" >11</th>
-      <td id="T_a569c_row11_col0" class="data row11 col0" >Normalize</td>
-      <td id="T_a569c_row11_col1" class="data row11 col1" >True</td>
-    </tr>
-    <tr>
-      <th id="T_a569c_level0_row12" class="row_heading level0 row12" >12</th>
-      <td id="T_a569c_row12_col0" class="data row12 col0" >Normalize method</td>
-      <td id="T_a569c_row12_col1" class="data row12 col1" >zscore</td>
-    </tr>
-    <tr>
-      <th id="T_a569c_level0_row13" class="row_heading level0 row13" >13</th>
-      <td id="T_a569c_row13_col0" class="data row13 col0" >CPU Jobs</td>
-      <td id="T_a569c_row13_col1" class="data row13 col1" >-1</td>
-    </tr>
-    <tr>
-      <th id="T_a569c_level0_row14" class="row_heading level0 row14" >14</th>
-      <td id="T_a569c_row14_col0" class="data row14 col0" >Use GPU</td>
-      <td id="T_a569c_row14_col1" class="data row14 col1" >False</td>
-    </tr>
-    <tr>
-      <th id="T_a569c_level0_row15" class="row_heading level0 row15" >15</th>
-      <td id="T_a569c_row15_col0" class="data row15 col0" >Log Experiment</td>
-      <td id="T_a569c_row15_col1" class="data row15 col1" >False</td>
-    </tr>
-    <tr>
-      <th id="T_a569c_level0_row16" class="row_heading level0 row16" >16</th>
-      <td id="T_a569c_row16_col0" class="data row16 col0" >Experiment Name</td>
-      <td id="T_a569c_row16_col1" class="data row16 col1" >cluster-default-name</td>
-    </tr>
-    <tr>
-      <th id="T_a569c_level0_row17" class="row_heading level0 row17" >17</th>
-      <td id="T_a569c_row17_col0" class="data row17 col0" >USI</td>
-      <td id="T_a569c_row17_col1" class="data row17 col1" >6d86</td>
-    </tr>
-  </tbody>
-</table>
-
-
-
-
-
-
-
-
-<style type="text/css">
-</style>
-<table id="T_1bda4">
-  <thead>
-    <tr>
-      <th class="blank level0" >&nbsp;</th>
-      <th id="T_1bda4_level0_col0" class="col_heading level0 col0" >Silhouette</th>
-      <th id="T_1bda4_level0_col1" class="col_heading level0 col1" >Calinski-Harabasz</th>
-      <th id="T_1bda4_level0_col2" class="col_heading level0 col2" >Davies-Bouldin</th>
-      <th id="T_1bda4_level0_col3" class="col_heading level0 col3" >Homogeneity</th>
-      <th id="T_1bda4_level0_col4" class="col_heading level0 col4" >Rand Index</th>
-      <th id="T_1bda4_level0_col5" class="col_heading level0 col5" >Completeness</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th id="T_1bda4_level0_row0" class="row_heading level0 row0" >0</th>
-      <td id="T_1bda4_row0_col0" class="data row0 col0" >0.2496</td>
-      <td id="T_1bda4_row0_col1" class="data row0 col1" >61.7712</td>
-      <td id="T_1bda4_row0_col2" class="data row0 col2" >1.3302</td>
-      <td id="T_1bda4_row0_col3" class="data row0 col3" >0</td>
-      <td id="T_1bda4_row0_col4" class="data row0 col4" >0</td>
-      <td id="T_1bda4_row0_col5" class="data row0 col5" >0</td>
-    </tr>
-  </tbody>
-</table>
-
-
-
-
-    Processing:   0%|          | 0/3 [00:00<?, ?it/s]
-
-
-    C:\Users\Erik\AppData\Roaming\Python\Python39\site-packages\sklearn\base.py:450: UserWarning: X does not have valid feature names, but IsolationForest was fitted with feature names
-      warnings.warn(
-    
-
-
-```python
-
-```
-
-
-```python
-kmean_results = pc.assign_model(kmeans)
-kmean_results['Cluster'].value_counts(normalize=True)
-```
-
-
-
-
-    Cluster 1    0.514970
-    Cluster 0    0.275449
-    Cluster 2    0.209581
-    Name: Cluster, dtype: float64
-
-
-
-Clusterização Hierárquica
-Para os resultados, do K-Médias:
-Interprete cada um dos clusters obtidos citando:
-Qual a distribuição das dimensões em cada grupo
-O país, de acordo com o algoritmo, melhor representa o seu agrupamento. Justifique
-Para os resultados da Clusterização Hierárquica, apresente o dendograma e interprete os resultados
-Compare os dois resultados, aponte as semelhanças e diferenças e interprete.
 
 
